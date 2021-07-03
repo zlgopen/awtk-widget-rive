@@ -29,7 +29,7 @@ __pycache__
 test.bin
 release
 event_log.bin
-res/assets/default/inc/fonts/default_full.res
+res
 *.log
 dllexports/awtk.def
 dllexports/tkc.def
