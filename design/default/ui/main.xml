@@ -1,0 +1,14 @@
+<window theme="main" >
+  <combo_box_ex name="assets" readonly="true" x="c" y="5" w="400" h="30" focusable="true" focused="true" text="flag.riv"> 
+    <property name="options">barrier.riv;beach_icon.riv;bear.riv;blink_simple_2.riv;buggy.riv;calendar_icon2.riv;cute-cake.riv;diamond.riv;documents3.riv;dory.riv;flag.riv;flame-and-spark.riv;flux_capacitor2.riv;handshake.riv;headphones.riv;heart.riv;hig_five_icon.riv;illustration-1.riv;iron_giant2.riv;juice063.riv;knight063.riv;laces.riv;landing.riv;laptop_slide.riv;love_note_4.riv;mail.riv;marine_corps_running.riv;marker.riv;marty_v6.riv;neon_car.riv;notebook_demo2.riv;notification_icon_3.riv;phone_drop.riv;planet.riv;poison_loader.riv;portable-table.riv;question_icon.riv;rocket_reload.riv;rudolph.riv;runtime_color_change.riv;search.riv;snowman2.riv;space_camp.riv;space_reload.riv;stroke-reflection-effect.riv;teeny_tiny_file.riv;truck063.riv;tv_color.riv;walkcycle-try.riv;weather_icon_example.riv;working-as-a-team.riv;zombie.riv</property>
+  </combo_box_ex>
+
+  <rive x="c" y="m" w="600" h="400" name="rive" url="flag.riv"/>
+  
+  <view x="c" y="b:3" w="80%" h="40" children_layout="default(r=1,c=4,s=5,m=5)" >
+    <button name="play" text="Play" focusable="true"/>
+    <button name="stop" text="Stop" focusable="true"/>
+    <button name="pause" text="Pause" focusable="true"/>
+    <button name="close" text="Close" on:click="quit()" focusable="true"/>
+  </view>
+</window>

@@ -1,0 +1,1191 @@
+[
+  {
+    "type": "enum",
+    "desc": "paint类型。",
+    "consts": [
+      {
+        "desc": "Fill",
+        "name": "VG_PAINT_FILL"
+      },
+      {
+        "desc": "Stroke",
+        "name": "VG_PAINT_STROKE"
+      }
+    ],
+    "header": "base/vg_paint.h",
+    "name": "vg_paint_type_t",
+    "prefix": "VG_PAINT_TYPE_",
+    "level": 1
+  },
+  {
+    "type": "enum",
+    "desc": "交点的类型。",
+    "consts": [
+      {
+        "desc": "mitter",
+        "name": "VG_JOIN_MITTER"
+      },
+      {
+        "desc": "round",
+        "name": "VG_JOIN_ROUND"
+      },
+      {
+        "desc": "bevel",
+        "name": "VG_JOIN_BEVEL"
+      }
+    ],
+    "header": "base/vg_paint.h",
+    "name": "vg_join_type_t",
+    "prefix": "VG_JOIN_TYPE_",
+    "level": 1
+  },
+  {
+    "type": "enum",
+    "desc": "顶点的类型。",
+    "consts": [
+      {
+        "desc": "butt",
+        "name": "VG_CAP_BUTT"
+      },
+      {
+        "desc": "round",
+        "name": "VG_CAP_ROUND"
+      },
+      {
+        "desc": "square",
+        "name": "VG_CAP_SQUARE"
+      }
+    ],
+    "header": "base/vg_paint.h",
+    "name": "vg_cap_type_t",
+    "prefix": "VG_CAP_TYPE_",
+    "level": 1
+  },
+  {
+    "type": "enum",
+    "desc": "合成模式。",
+    "consts": [
+      {
+        "desc": "SRC OVER",
+        "name": "VG_BLEND_SRCOVER"
+      }
+    ],
+    "header": "base/vg_paint.h",
+    "name": "vg_blend_mode_t",
+    "prefix": "VG_BLEND_MODE_",
+    "level": 1
+  },
+  {
+    "type": "class",
+    "methods": [
+      {
+        "params": [],
+        "annotation": {},
+        "desc": "创建paint对象。",
+        "name": "vg_paint_create",
+        "return": {
+          "type": "vg_path_t*",
+          "desc": "返回paint对象。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_path_t*",
+            "name": "paint",
+            "desc": "paint对象。"
+          },
+          {
+            "type": "vg_paint_type_t",
+            "name": "type",
+            "desc": "类型。"
+          }
+        ],
+        "annotation": {},
+        "desc": "设置类型。",
+        "name": "vg_paint_set_type",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_path_t*",
+            "name": "paint",
+            "desc": "paint对象。"
+          },
+          {
+            "type": "vg_join_type_t_t",
+            "name": "join",
+            "desc": "交点类型。"
+          }
+        ],
+        "annotation": {},
+        "desc": "设置交点类型。",
+        "name": "vg_paint_set_join_type",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_path_t*",
+            "name": "paint",
+            "desc": "paint对象。"
+          },
+          {
+            "type": "vg_cap_type_t_t",
+            "name": "cap",
+            "desc": "交点类型。"
+          }
+        ],
+        "annotation": {},
+        "desc": "设置顶点类型。",
+        "name": "vg_paint_set_cap_type",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_path_t*",
+            "name": "paint",
+            "desc": "paint对象。"
+          },
+          {
+            "type": "vg_blend_mode_t_t",
+            "name": "blend",
+            "desc": "合成模式。"
+          }
+        ],
+        "annotation": {},
+        "desc": "设置合成模式。",
+        "name": "vg_paint_set_blend_mode",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_path_t*",
+            "name": "paint",
+            "desc": "paint对象。"
+          },
+          {
+            "type": "color_t",
+            "name": "color",
+            "desc": "颜色。"
+          }
+        ],
+        "annotation": {},
+        "desc": "设置颜色。",
+        "name": "vg_paint_set_color",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_path_t*",
+            "name": "paint",
+            "desc": "paint对象。"
+          },
+          {
+            "type": "line_width_t",
+            "name": "line_width",
+            "desc": "线宽。"
+          }
+        ],
+        "annotation": {},
+        "desc": "设置线宽。",
+        "name": "vg_paint_set_line_width",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_path_t*",
+            "name": "paint",
+            "desc": "paint对象。"
+          },
+          {
+            "type": "float",
+            "name": "sx",
+            "desc": "起始点x坐标。"
+          },
+          {
+            "type": "float",
+            "name": "sy",
+            "desc": "起始点y坐标。"
+          },
+          {
+            "type": "float",
+            "name": "ex",
+            "desc": "结束点x坐标。"
+          },
+          {
+            "type": "float",
+            "name": "ey",
+            "desc": "结束点y坐标。"
+          }
+        ],
+        "annotation": {},
+        "desc": "设置线性渐变。",
+        "name": "vg_paint_set_linear_gradient",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_path_t*",
+            "name": "paint",
+            "desc": "paint对象。"
+          },
+          {
+            "type": "float",
+            "name": "sx",
+            "desc": "起始点x坐标。"
+          },
+          {
+            "type": "float",
+            "name": "sy",
+            "desc": "起始点y坐标。"
+          },
+          {
+            "type": "float",
+            "name": "ex",
+            "desc": "结束点x坐标。"
+          },
+          {
+            "type": "float",
+            "name": "ey",
+            "desc": "结束点y坐标。"
+          }
+        ],
+        "annotation": {},
+        "desc": "设置放射渐变。",
+        "name": "vg_paint_set_radial_gradient",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_path_t*",
+            "name": "paint",
+            "desc": "paint对象。"
+          },
+          {
+            "type": "color_t",
+            "name": "color",
+            "desc": "颜色。"
+          },
+          {
+            "type": "float",
+            "name": "stop",
+            "desc": "位置。"
+          }
+        ],
+        "annotation": {},
+        "desc": "增加渐变关键点。",
+        "name": "vg_paint_add_gradient_stop",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_path_t*",
+            "name": "paint",
+            "desc": "paint对象。"
+          }
+        ],
+        "annotation": {},
+        "desc": "销毁paint对象。",
+        "name": "vg_paint_destroy",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      }
+    ],
+    "events": [],
+    "properties": [
+      {
+        "name": "type",
+        "desc": "类型。",
+        "type": "vg_paint_type_t",
+        "annotation": {
+          "readable": true
+        }
+      },
+      {
+        "name": "color",
+        "desc": "颜色。",
+        "type": "color_t",
+        "annotation": {
+          "readable": true
+        }
+      },
+      {
+        "name": "line_width",
+        "desc": "线宽。",
+        "type": "float",
+        "annotation": {
+          "readable": true
+        }
+      },
+      {
+        "name": "join",
+        "desc": "交点类型。",
+        "type": "vg_join_type_t",
+        "annotation": {
+          "readable": true
+        }
+      },
+      {
+        "name": "cap",
+        "desc": "顶点类型。",
+        "type": "vg_cap_type_t",
+        "annotation": {
+          "readable": true
+        }
+      },
+      {
+        "name": "blend_mode",
+        "desc": "合成模式。",
+        "type": "vg_cap_type_t",
+        "annotation": {
+          "readable": true
+        }
+      },
+      {
+        "name": "gradient",
+        "desc": "渐变色。",
+        "type": "vg_gradient_t*",
+        "annotation": {
+          "readable": true
+        }
+      }
+    ],
+    "header": "base/vg_paint.h",
+    "desc": "paint。",
+    "name": "vg_paint_t",
+    "level": 1
+  },
+  {
+    "type": "enum",
+    "desc": "VG路径类型。",
+    "consts": [
+      {
+        "desc": "无效类型。",
+        "name": "VG_PATH_NONE"
+      },
+      {
+        "desc": "移动到指定点。",
+        "name": "VG_PATH_MOVE_TO"
+      },
+      {
+        "desc": "连线到指定点。",
+        "name": "VG_PATH_LINE_TO"
+      },
+      {
+        "desc": "连曲线到指定点。",
+        "name": "VG_PATH_CUBIC_TO"
+      },
+      {
+        "desc": "封闭路径。",
+        "name": "VG_PATH_CLOSE"
+      }
+    ],
+    "header": "base/vg_path.h",
+    "name": "vg_path_type_t",
+    "prefix": "VG_PATH_TYPE_",
+    "level": 1
+  },
+  {
+    "type": "class",
+    "methods": [],
+    "events": [],
+    "properties": [
+      {
+        "name": "x",
+        "desc": "x坐标。",
+        "type": "float",
+        "annotation": {
+          "readable": true
+        }
+      },
+      {
+        "name": "y",
+        "desc": "y坐标。",
+        "type": "float",
+        "annotation": {
+          "readable": true
+        }
+      }
+    ],
+    "header": "base/vg_path.h",
+    "desc": "移动到指定点。",
+    "name": "vg_move_to_t",
+    "level": 1
+  },
+  {
+    "type": "class",
+    "methods": [],
+    "events": [],
+    "properties": [
+      {
+        "name": "x",
+        "desc": "x坐标。",
+        "type": "float",
+        "annotation": {
+          "readable": true
+        }
+      },
+      {
+        "name": "y",
+        "desc": "y坐标。",
+        "type": "float",
+        "annotation": {
+          "readable": true
+        }
+      }
+    ],
+    "header": "base/vg_path.h",
+    "desc": "连线到指定点。",
+    "name": "vg_line_to_t",
+    "level": 1
+  },
+  {
+    "type": "class",
+    "methods": [
+      {
+        "params": [
+          {
+            "type": "vg_path_t*",
+            "name": "first",
+            "desc": "首条路径。"
+          },
+          {
+            "type": "float",
+            "name": "x",
+            "desc": "x坐标。"
+          },
+          {
+            "type": "float",
+            "name": "y",
+            "desc": "y坐标。"
+          }
+        ],
+        "annotation": {},
+        "desc": "追加move_to路径。",
+        "name": "vg_path_add_move_to",
+        "return": {
+          "type": "vg_path_t*",
+          "desc": "首条路径对象。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_path_t*",
+            "name": "first",
+            "desc": "首条路径。"
+          },
+          {
+            "type": "float",
+            "name": "x",
+            "desc": "x坐标。"
+          },
+          {
+            "type": "float",
+            "name": "y",
+            "desc": "y坐标。"
+          }
+        ],
+        "annotation": {},
+        "desc": "追加line_to路径。",
+        "name": "vg_path_add_line_to",
+        "return": {
+          "type": "vg_path_t*",
+          "desc": "首条路径对象。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_path_t*",
+            "name": "first",
+            "desc": "首条路径。"
+          },
+          {
+            "type": "float",
+            "name": "ox",
+            "desc": "x坐标。"
+          },
+          {
+            "type": "float",
+            "name": "oy",
+            "desc": "y坐标。"
+          },
+          {
+            "type": "float",
+            "name": "ix",
+            "desc": "x坐标。"
+          },
+          {
+            "type": "float",
+            "name": "iy",
+            "desc": "y坐标。"
+          },
+          {
+            "type": "float",
+            "name": "x",
+            "desc": "x坐标。"
+          },
+          {
+            "type": "float",
+            "name": "y",
+            "desc": "y坐标。"
+          }
+        ],
+        "annotation": {},
+        "desc": "追加cubic_to路径。",
+        "name": "vg_path_add_cubic_to",
+        "return": {
+          "type": "vg_path_t*",
+          "desc": "首条路径对象。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_path_t*",
+            "name": "first",
+            "desc": "首条路径。"
+          }
+        ],
+        "annotation": {},
+        "desc": "追加close路径。",
+        "name": "vg_path_add_close",
+        "return": {
+          "type": "vg_path_t*",
+          "desc": "首条路径对象。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "const vg_path_t*",
+            "name": "first",
+            "desc": "首条路径。"
+          },
+          {
+            "type": "bool_t",
+            "name": "all",
+            "desc": "是否复制全部。"
+          }
+        ],
+        "annotation": {},
+        "desc": "复制路径。",
+        "name": "vg_path_dup",
+        "return": {
+          "type": "vg_path_t*",
+          "desc": "新的路径对象。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_path_t*",
+            "name": "first",
+            "desc": "首条路径。"
+          },
+          {
+            "type": "vg_path_t*",
+            "name": "path",
+            "desc": "路径。"
+          }
+        ],
+        "annotation": {},
+        "desc": "追加路径。",
+        "name": "vg_path_append",
+        "return": {
+          "type": "vg_path_t*",
+          "desc": "首条路径对象。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_path_t*",
+            "name": "first",
+            "desc": "首条路径。"
+          },
+          {
+            "type": "rect_t*",
+            "name": "result",
+            "desc": "如果是rect，用于返回rect。"
+          }
+        ],
+        "annotation": {},
+        "desc": "是否是rect。",
+        "name": "vg_path_is_rect",
+        "return": {
+          "type": "bool_t",
+          "desc": "返回TRUE表示是，否则表示不是。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_path_t*",
+            "name": "first",
+            "desc": "首条路径。"
+          },
+          {
+            "type": "matrix_t*",
+            "name": "m",
+            "desc": "矩阵。"
+          }
+        ],
+        "annotation": {},
+        "desc": "变换。",
+        "name": "vg_path_transform",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_path_t*",
+            "name": "first",
+            "desc": "首条路径。"
+          }
+        ],
+        "annotation": {},
+        "desc": "销毁路径。",
+        "name": "vg_path_destroy",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      }
+    ],
+    "events": [],
+    "properties": [
+      {
+        "name": "ox",
+        "desc": "x坐标。",
+        "type": "float",
+        "annotation": {
+          "readable": true
+        }
+      },
+      {
+        "name": "oy",
+        "desc": "y坐标。",
+        "type": "float",
+        "annotation": {
+          "readable": true
+        }
+      },
+      {
+        "name": "ix",
+        "desc": "x坐标。",
+        "type": "float",
+        "annotation": {
+          "readable": true
+        }
+      },
+      {
+        "name": "iy",
+        "desc": "y坐标。",
+        "type": "float",
+        "annotation": {
+          "readable": true
+        }
+      },
+      {
+        "name": "x",
+        "desc": "x坐标。",
+        "type": "float",
+        "annotation": {
+          "readable": true
+        }
+      },
+      {
+        "name": "y",
+        "desc": "y坐标。",
+        "type": "float",
+        "annotation": {
+          "readable": true
+        }
+      },
+      {
+        "name": "type",
+        "desc": "类型。",
+        "type": "vg_path_type_t",
+        "annotation": {
+          "readable": true
+        }
+      },
+      {
+        "name": "next",
+        "desc": "下一段路径。",
+        "type": "vg_path_t*",
+        "annotation": {
+          "readable": true
+        }
+      }
+    ],
+    "header": "base/vg_path.h",
+    "desc": "连曲线到指定点。",
+    "name": "vg_cubic_to_t",
+    "level": 1
+  },
+  {
+    "type": "class",
+    "methods": [
+      {
+        "params": [],
+        "annotation": {},
+        "desc": "创建renderer对象。",
+        "name": "vg_renderer_create",
+        "return": {
+          "type": "vg_renderer_t*",
+          "desc": "返回renderer对象。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_renderer_t*",
+            "name": "renderer",
+            "desc": "renderer对象。"
+          }
+        ],
+        "annotation": {},
+        "desc": "保存状态。",
+        "name": "vg_renderer_save",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_renderer_t*",
+            "name": "renderer",
+            "desc": "renderer对象。"
+          }
+        ],
+        "annotation": {},
+        "desc": "恢复状态。",
+        "name": "vg_renderer_restore",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_renderer_t*",
+            "name": "renderer",
+            "desc": "renderer对象。"
+          },
+          {
+            "type": "vg_path_t*",
+            "name": "path",
+            "desc": "path对象。"
+          },
+          {
+            "type": "vg_paint_t*",
+            "name": "paint",
+            "desc": "paint对象。"
+          }
+        ],
+        "annotation": {},
+        "desc": "绘制路径。",
+        "name": "vg_renderer_draw_path",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_renderer_t*",
+            "name": "renderer",
+            "desc": "renderer对象。"
+          },
+          {
+            "type": "vg_path_t*",
+            "name": "path",
+            "desc": "path对象。"
+          }
+        ],
+        "annotation": {},
+        "desc": "裁减路径。",
+        "name": "vg_renderer_clip_path",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_renderer_t*",
+            "name": "renderer",
+            "desc": "renderer对象。"
+          },
+          {
+            "type": "float",
+            "name": "a",
+            "desc": "a。"
+          },
+          {
+            "type": "float",
+            "name": "b",
+            "desc": "b。"
+          },
+          {
+            "type": "float",
+            "name": "c",
+            "desc": "c。"
+          },
+          {
+            "type": "float",
+            "name": "d",
+            "desc": "d。"
+          },
+          {
+            "type": "float",
+            "name": "e",
+            "desc": "e。"
+          },
+          {
+            "type": "float",
+            "name": "f",
+            "desc": "f。"
+          }
+        ],
+        "annotation": {},
+        "desc": "transform。",
+        "name": "vg_renderer_transform",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "vg_renderer_t*",
+            "name": "renderer",
+            "desc": "renderer对象。"
+          }
+        ],
+        "annotation": {},
+        "desc": "销毁renderer对象。",
+        "name": "vg_renderer_destroy",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      }
+    ],
+    "events": [],
+    "properties": [
+      {
+        "name": "vg",
+        "desc": "vgcanvas",
+        "type": "vgcanvas_t*",
+        "annotation": {
+          "readable": true
+        }
+      }
+    ],
+    "header": "base/vg_renderer.h",
+    "desc": "渐变关键点。",
+    "name": "vg_renderer_stop_t",
+    "level": 1
+  },
+  {
+    "params": [],
+    "annotation": {
+      "global": true
+    },
+    "desc": "注册控件。",
+    "name": "rive_register",
+    "return": {
+      "type": "ret_t",
+      "desc": "返回RET_OK表示成功，否则表示失败。"
+    },
+    "type": "method",
+    "header": "src/rive_register.h",
+    "level": 1
+  },
+  {
+    "params": [],
+    "annotation": {
+      "global": true
+    },
+    "desc": "获取支持的渲染模式。",
+    "name": "rive_supported_render_mode",
+    "return": {
+      "type": "const char*",
+      "desc": "返回渲染模式。"
+    },
+    "type": "method",
+    "header": "src/rive_register.h",
+    "level": 1
+  },
+  {
+    "type": "class",
+    "methods": [
+      {
+        "params": [
+          {
+            "type": "widget_t*",
+            "name": "parent",
+            "desc": "父控件"
+          },
+          {
+            "type": "xy_t",
+            "name": "x",
+            "desc": "x坐标"
+          },
+          {
+            "type": "xy_t",
+            "name": "y",
+            "desc": "y坐标"
+          },
+          {
+            "type": "wh_t",
+            "name": "w",
+            "desc": "宽度"
+          },
+          {
+            "type": "wh_t",
+            "name": "h",
+            "desc": "高度"
+          }
+        ],
+        "annotation": {
+          "constructor": true,
+          "scriptable": true
+        },
+        "desc": "创建rive对象",
+        "name": "rive_create",
+        "return": {
+          "type": "widget_t*",
+          "desc": "rive对象。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "widget_t*",
+            "name": "widget",
+            "desc": "rive对象。"
+          }
+        ],
+        "annotation": {
+          "scriptable": true
+        },
+        "desc": "播放。",
+        "name": "rive_play",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "widget_t*",
+            "name": "widget",
+            "desc": "rive对象。"
+          }
+        ],
+        "annotation": {
+          "scriptable": true
+        },
+        "desc": "停止(并重置index为0)。",
+        "name": "rive_stop",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "widget_t*",
+            "name": "widget",
+            "desc": "rive对象。"
+          }
+        ],
+        "annotation": {
+          "scriptable": true
+        },
+        "desc": "暂停。",
+        "name": "rive_pause",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "widget_t*",
+            "name": "widget",
+            "desc": "rive对象。"
+          }
+        ],
+        "annotation": {
+          "cast": true,
+          "scriptable": true
+        },
+        "desc": "转换为rive对象(供脚本语言使用)。",
+        "name": "rive_cast",
+        "return": {
+          "type": "widget_t*",
+          "desc": "rive对象。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "widget_t*",
+            "name": "widget",
+            "desc": "widget对象。"
+          },
+          {
+            "type": "const char*",
+            "name": "url",
+            "desc": "资源。"
+          }
+        ],
+        "annotation": {
+          "scriptable": true
+        },
+        "desc": "设置资源的URL。\n\n> 使用本地文件时，请在file://后紧跟文件名。如:file://./data/heart.json\n> 使用资源时，指定文件名即可，请把资源文件放到design/default/data/目录里。",
+        "name": "rive_set_url",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      }
+    ],
+    "events": [],
+    "properties": [
+      {
+        "name": "url",
+        "desc": "资源。",
+        "type": "char*",
+        "annotation": {
+          "set_prop": true,
+          "get_prop": true,
+          "readable": true,
+          "persitent": true,
+          "design": true,
+          "scriptable": true
+        }
+      },
+      {
+        "name": "running",
+        "desc": "是否在播放。",
+        "type": "bool_t",
+        "annotation": {
+          "readable": true,
+          "scriptable": true
+        }
+      },
+      {
+        "name": "fps",
+        "desc": "动画的帧率。",
+        "type": "double",
+        "annotation": {
+          "readable": true,
+          "scriptable": true
+        }
+      },
+      {
+        "name": "width",
+        "desc": "动画的默认宽度。",
+        "type": "uint32_t",
+        "annotation": {
+          "readable": true,
+          "scriptable": true
+        }
+      },
+      {
+        "name": "height",
+        "desc": "动画的默认高度。",
+        "type": "uint32_t",
+        "annotation": {
+          "readable": true,
+          "scriptable": true
+        }
+      },
+      {
+        "name": "duration",
+        "desc": "动画的时长(s)",
+        "type": "double",
+        "annotation": {
+          "readable": true,
+          "scriptable": true
+        }
+      },
+      {
+        "name": "total_frames",
+        "desc": "动画的总帧数。",
+        "type": "uint32_t",
+        "annotation": {
+          "readable": true,
+          "scriptable": true
+        }
+      }
+    ],
+    "header": "rive/rive.h",
+    "desc": "Lottie animations player\n在xml中使用\"rive\"标签创建控件。如：\n\n```xml\n<!-- ui -->\n<rive x=\"c\" y=\"50\" w=\"100\" h=\"100\"/>\n```\n\n可用通过style来设置控件的显示风格，如字体的大小和颜色等等。如：\n\n```xml\n<!-- style -->\n<rive>\n<style name=\"default\" border_color=\"red\">\n<normal/>\n</style>\n</rive>\n```",
+    "name": "rive_t",
+    "parent": "widget_t",
+    "annotation": {
+      "scriptable": true,
+      "design": true,
+      "widget": true
+    },
+    "level": 2
+  }
+]
