@@ -125,13 +125,13 @@ ret_t vg_renderer_clip_path(vg_renderer_t* renderer, const vg_path_t* path) {
   ret_t ret = RET_FAIL;
   return_value_if_fail(renderer != NULL && path != NULL, RET_BAD_PARAMS);
 
-  if (vg_path_is_rect(path, &r)) {
-    ret = vgcanvas_intersect_clip_rect(renderer->vg, r.x, r.y, r.w, r.h);
-  } else if(renderer->vg->vt->clip_path != NULL){
+  if (renderer->vg->vt->clip_path != NULL){
     vgcanvas_draw_path(renderer->vg, path);
     ret = vgcanvas_clip_path(renderer->vg);
     vgcanvas_begin_path(renderer->vg);
-  }
+  } else if (vg_path_is_rect(path, &r)) {
+    ret = vgcanvas_clip_rect(renderer->vg, r.x, r.y, r.w, r.h);
+  } 
 
   return ret;
 }

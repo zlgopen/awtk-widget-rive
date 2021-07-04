@@ -1,6 +1,6 @@
 # awtk-widget-rive
 
-[Rive](https://rive.app/)是一个超级强大的动画格式及配套工具。[rive player](https://github.com/zlgopen/awtk-widget-rive) 控件是基于 [rive-cpp](https://github.com/rive-app/rive-cpp) 实现的 [Rive](https://rive.app/) 播放器。
+[Rive](https://rive.app/) 是一个超级强大的动画格式及配套工具。[rive player](https://github.com/zlgopen/awtk-widget-rive) 控件是基于 [rive-cpp](https://github.com/rive-app/rive-cpp) 实现的 [Rive](https://rive.app/) 播放器。
 
 ![](docs/images/ui.png)
 
@@ -77,5 +77,11 @@ scons LINUX_FB=true
 
 ## 已知问题
 
-* 除了cairo外，不支持clip path, 不支持多个stop的渐变色。
+* 请使用 cairo 作为 vgcanvas 的 backend 获得完整功能演示，其它 backend 由于不支持 clip path 和多个 stop 的渐变色，可能存在潜在的问题。
+
+修改 awtk/awtk_config.py，并重新编译：
+
+```
+VGCANVAS='CAIRO'
+```
 

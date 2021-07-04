@@ -45,7 +45,7 @@ ret_t application_init(void) {
   widget_child_on(win, "stop", EVT_CLICK, on_stop, win); 
   widget_child_on(win, "assets", EVT_VALUE_CHANGED, on_asset_changed, win); 
 
-  window_manager_set_show_fps(window_manager(), TRUE);
+//  window_manager_set_show_fps(window_manager(), TRUE);
 
   return RET_OK;
 }
