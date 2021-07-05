@@ -248,9 +248,9 @@ TK_DECL_VTABLE(rive) = {.size = sizeof(rive_t),
                         .persistent_properties = s_rive_properties,
                         .parent = TK_PARENT_VTABLE(widget),
                         .create = rive_create,
-                        .on_paint_self = rive_on_paint_self,
-                        .set_prop = rive_set_prop,
                         .get_prop = rive_get_prop,
+                        .set_prop = rive_set_prop,
+                        .on_paint_self = rive_on_paint_self,
                         .on_destroy = rive_on_destroy};
 
 widget_t* rive_create(widget_t* parent, xy_t x, xy_t y, wh_t w, wh_t h) {
