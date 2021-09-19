@@ -1,32 +1,5 @@
 [
   {
-    "type": "class",
-    "methods": [],
-    "events": [],
-    "properties": [
-      {
-        "name": "x",
-        "desc": "x坐标。",
-        "type": "float",
-        "annotation": {
-          "readable": true
-        }
-      },
-      {
-        "name": "y",
-        "desc": "y坐标。",
-        "type": "float",
-        "annotation": {
-          "readable": true
-        }
-      }
-    ],
-    "header": "base/vg_path.h",
-    "desc": "移动到指定点。",
-    "name": "vg_move_to_t",
-    "level": 1
-  },
-  {
     "type": "enum",
     "desc": "paint类型。",
     "consts": [
@@ -42,6 +15,28 @@
     "header": "base/vg_paint.h",
     "name": "vg_paint_type_t",
     "prefix": "VG_PAINT_TYPE_",
+    "level": 1
+  },
+  {
+    "type": "enum",
+    "desc": "交点的类型。",
+    "consts": [
+      {
+        "desc": "mitter",
+        "name": "VG_JOIN_MITTER"
+      },
+      {
+        "desc": "round",
+        "name": "VG_JOIN_ROUND"
+      },
+      {
+        "desc": "bevel",
+        "name": "VG_JOIN_BEVEL"
+      }
+    ],
+    "header": "base/vg_paint.h",
+    "name": "vg_join_type_t",
+    "prefix": "VG_JOIN_TYPE_",
     "level": 1
   },
   {
@@ -429,25 +424,30 @@
     "level": 1
   },
   {
-    "type": "enum",
-    "desc": "交点的类型。",
-    "consts": [
+    "type": "class",
+    "methods": [],
+    "events": [],
+    "properties": [
       {
-        "desc": "mitter",
-        "name": "VG_JOIN_MITTER"
+        "name": "x",
+        "desc": "x坐标。",
+        "type": "float",
+        "annotation": {
+          "readable": true
+        }
       },
       {
-        "desc": "round",
-        "name": "VG_JOIN_ROUND"
-      },
-      {
-        "desc": "bevel",
-        "name": "VG_JOIN_BEVEL"
+        "name": "y",
+        "desc": "y坐标。",
+        "type": "float",
+        "annotation": {
+          "readable": true
+        }
       }
     ],
-    "header": "base/vg_paint.h",
-    "name": "vg_join_type_t",
-    "prefix": "VG_JOIN_TYPE_",
+    "header": "base/vg_path.h",
+    "desc": "移动到指定点。",
+    "name": "vg_move_to_t",
     "level": 1
   },
   {

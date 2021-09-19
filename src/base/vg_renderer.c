@@ -47,13 +47,13 @@ ret_t vg_renderer_restore(vg_renderer_t* renderer) {
 static ret_t vgcanvas_apply_paint(vgcanvas_t* vg, const vg_paint_t* paint) {
   vg_gradient_t* g = paint->gradient;
   if (paint->type == VG_PAINT_FILL) {
-    if (g != NULL && g->nr > 1) {
+    if (g != NULL && g->gradient.nr > 1 ) {
       vgcanvas_set_fill_gradient(vg, g);
     } else {
       vgcanvas_set_fill_color(vg, paint->color);
     }
   } else {
-    if (g != NULL && g->nr > 1) {
+    if (g != NULL && g->gradient.nr > 1 ) {
       vgcanvas_set_stroke_gradient(vg, g);
     } else {
       vgcanvas_set_stroke_color(vg, paint->color);
