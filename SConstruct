@@ -11,11 +11,6 @@ CPPPATH=[
 APP_CXXFLAGS = '-DAWTK=1 '
 APP_CFLAGS=' -DRIVE_BUILD '
 
-if platform.system() == 'Windows':
-  APP_CXXFLAGS += ' /std:c++17 -DRIVE_BUILD '
-else:
-  APP_CXXFLAGS += ' -std=c++17 '
-
 helper.add_cpppath(CPPPATH).add_cxxflags(APP_CXXFLAGS).add_cflags(APP_CFLAGS)
 helper.set_dll_def('src/rive.def').set_libs(['rive']).call(DefaultEnvironment)
 

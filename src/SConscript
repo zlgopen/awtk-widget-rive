@@ -26,6 +26,14 @@ RIVE_CPP_FILES = Glob("rive-cpp/src/generated/*.cpp") + \
 
 SOURCES=Glob('base/*.c') + Glob('*.c') + Glob('*.cpp') + RIVE_CPP_FILES + Glob('rive/*.cpp');
 
+APP_CXXFLAGS = ''
+if platform.system() == 'Windows':
+  APP_CXXFLAGS += ' /std:c++latest -DRIVE_BUILD -D_USE_MATH_DEFINES '
+else:
+  APP_CXXFLAGS += ' -std=c++17 '
+
+env['CXXFLAGS'] = env['CXXFLAGS'] + APP_CXXFLAGS
+
 EXPORT_DEF=''
 if OS_NAME == 'Windows' and os.environ['TOOLS_NAME'] == '':
   EXPORT_DEF = ' /DEF:"src/rive.def" '
