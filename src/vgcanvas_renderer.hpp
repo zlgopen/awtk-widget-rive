@@ -3,7 +3,7 @@
 
 #include "base/vgcanvas.h"
 #include "base/vg_renderer.h"
-#include "renderer.hpp"
+#include "rive/renderer.hpp"
 #include <vector>
 
 namespace rive {

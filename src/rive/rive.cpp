@@ -26,9 +26,9 @@
 #include "tkc/data_reader_factory.h"
 #include "vgcanvas_renderer.hpp"
 
-#include "file.hpp"
-#include "artboard.hpp"
-#include "animation/linear_animation_instance.hpp"
+#include "rive/file.hpp"
+#include "rive/artboard.hpp"
+#include "rive/animation/linear_animation_instance.hpp"
 
 class RiveInfo {
  private:
