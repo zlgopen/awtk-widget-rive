@@ -223,7 +223,7 @@ static ret_t rive_on_destroy(widget_t* widget) {
 }
 
 static ret_t rive_on_paint_self(widget_t* widget, canvas_t* c) {
-  rect_t r;
+  rectf_t r;
   rive_t* rive = RIVE(widget);
   RiveInfo* info = static_cast<RiveInfo*>(rive->info);
   vgcanvas_t* vg = canvas_get_vgcanvas(c);
