@@ -1105,6 +1105,16 @@
           "type": "ret_t",
           "desc": "返回RET_OK表示成功，否则表示失败。"
         }
+      },
+      {
+        "params": [],
+        "annotation": {},
+        "desc": "获取 rive 虚表。",
+        "name": "rive_get_widget_vtable",
+        "return": {
+          "type": "const widget_vtable_t*",
+          "desc": "成功返回 rive 虚表。"
+        }
       }
     ],
     "events": [],

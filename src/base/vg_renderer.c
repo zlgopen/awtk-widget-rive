@@ -27,9 +27,9 @@ vg_renderer_t* vg_renderer_create(vgcanvas_t* vg) {
   vg_renderer_t* renderer = NULL;
   return_value_if_fail(vg != NULL, NULL);
   renderer = TKMEM_ZALLOC(vg_renderer_t);
-  return_value_if_fail(renderer != NULL, NULL)
+  return_value_if_fail(renderer != NULL, NULL);
 
-      renderer->vg = vg;
+  renderer->vg = vg;
 
   return renderer;
 }

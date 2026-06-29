@@ -30,18 +30,19 @@
 #include "rive/artboard.hpp"
 #include "rive/animation/linear_animation_instance.hpp"
 
+#include <memory>
+
 class RiveInfo {
  private:
   uint64_t last_time;
 
-  rive::File* file;
-  rive::Artboard* artboard;
+  rive::VGCanvasFactory factory;
+  rive::rcp<rive::File> file;
+  std::unique_ptr<rive::ArtboardInstance> artboard;
   rive::LinearAnimationInstance* animation;
 
  public:
   RiveInfo(void) {
-    file = NULL;
-    artboard = NULL;
     animation = NULL;
   }
 
@@ -53,8 +54,8 @@ class RiveInfo {
     delete animation;
     animation = nullptr;
 
-    delete file;
-    file = NULL;
+    artboard.reset();
+    file.reset();
 
     return RET_OK;
   }
@@ -64,19 +65,21 @@ class RiveInfo {
     uint8_t* bytes = (uint8_t*)data_reader_read_all(url, &size);
     return_value_if_fail(bytes != NULL, RET_BAD_PARAMS);
 
-    auto reader = rive::BinaryReader(bytes, (size_t)size);
-    auto result = rive::File::import(reader, &file);
-    if (result != rive::ImportResult::success) {
-      TKMEM_FREE(bytes);
+    rive::ImportResult result = rive::ImportResult::success;
+    file = rive::File::import(rive::Span<const uint8_t>(bytes, size), &factory, &result);
+    TKMEM_FREE(bytes);
+    if (result != rive::ImportResult::success || file == nullptr) {
       return RET_FAIL;
     }
 
-    this->artboard = file->artboard();
-    this->artboard->advance(0.0f);
+    artboard = file->artboardDefault();
+    return_value_if_fail(artboard != NULL, RET_FAIL);
 
-    auto animation = this->artboard->firstAnimation();
-    if (animation) {
-      this->animation = new rive::LinearAnimationInstance(animation);
+    artboard->advance(0.0f);
+
+    auto linearAnimation = artboard->firstAnimation();
+    if (linearAnimation) {
+      animation = new rive::LinearAnimationInstance(linearAnimation, artboard.get());
     }
     log_debug("laod %s %d\n", url, this->is_valid());
     return RET_OK;
@@ -103,7 +106,7 @@ class RiveInfo {
       float elapsed = animation->time();
 
       artboard->advance(-elapsed);
-      animation->apply(artboard);
+      animation->apply();
       animation->advance(-elapsed);
     }
 
@@ -122,7 +125,7 @@ class RiveInfo {
 
       last_time = now;
       animation->advance(elapsed);
-      animation->apply(artboard);
+      animation->apply();
       artboard->advance(elapsed);
     }
 

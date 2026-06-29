@@ -8,7 +8,7 @@ CPPPATH=[
   os.path.join(helper.APP_ROOT, "src/rive-cpp/src"),
 ]
 
-APP_CXXFLAGS = '-DAWTK=1 '
+APP_CXXFLAGS = '-DAWTK=1 -DRIVE_BUILD -D_RIVE_INTERNAL_ '
 APP_CFLAGS=' -DRIVE_BUILD '
 
 helper.add_cpppath(CPPPATH).add_cxxflags(APP_CXXFLAGS).add_cflags(APP_CFLAGS)

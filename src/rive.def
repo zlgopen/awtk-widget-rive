@@ -35,3 +35,4 @@ EXPORTS
     rive_pause
     rive_cast
     rive_set_url
+    rive_get_widget_vtable
