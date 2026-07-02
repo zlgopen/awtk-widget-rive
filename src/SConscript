@@ -14,7 +14,7 @@ SOURCES=Glob('base/*.c') + Glob('*.c') + Glob('*.cpp') + RIVE_CPP_FILES + Glob('
 
 APP_CXXFLAGS = ''
 if platform.system() == 'Windows':
-  APP_CXXFLAGS += ' /std:c++latest -DRIVE_BUILD -D_USE_MATH_DEFINES '
+  APP_CXXFLAGS += ' /std:c++latest -DRIVE_BUILD -D_USE_MATH_DEFINES -DNOMINMAX '
 else:
   APP_CXXFLAGS += ' -std=c++17 '
 
